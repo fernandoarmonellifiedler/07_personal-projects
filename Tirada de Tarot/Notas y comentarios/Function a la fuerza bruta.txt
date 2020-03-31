@@ -1,0 +1,176 @@
+//Botón que calcula la tirada:
+function tirada() {
+    if (valores.length == 0 || valores.length <= 2) {
+        window.alert("Agrega 3 cartas para realizar la tirada")
+    } else if (carta1 = Number(num.value)) {
+        if (carta1 = 0) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_0.jpg'
+        } else if (carta1 = 1) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_1.jpg'
+        } else if (carta1 = 2) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_2.jpg'
+        } else if (carta1 = 3) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_3.jpg'
+        } else if (carta1 = 4) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_4.jpg'
+        } else if (carta1 = 5) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_5.jpg'
+        } else if (carta1 = 6) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_6.jpg'
+        } else if (carta1 = 7) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_7.jpg'
+        } else if (carta1 = 8) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_8.jpg'
+        } else if (carta1 = 9) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_9.jpg'
+        } else if (carta1 = 10) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_10.jpg'
+        } else if (carta1 = 11) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_11.jpg'
+        } else if (carta1 = 12) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_12.jpg'
+        } else if (carta1 = 13) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_13.jpg'
+        } else if (carta1 = 14) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_14.jpg'
+        } else if (carta1 = 15) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_15.jpg'
+        } else if (carta1 = 16) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_16.jpg'
+        } else if (carta1 = 17) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_17.jpg'
+        } else if (carta1 = 18) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_18.jpg'
+        } else if (carta1 = 19) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_19.jpg'
+        } else if (carta1 = 20) {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_20.jpg'
+        } else {
+            var img1 = document.createElement('img1'); 
+            img1.src =  'cartas/arcano_21.jpg'
+        }
+    
+    } else if (carta2 = num.value) {
+        if (carta2 = 0) {
+            img2.setAttribute('carta2', 'cartas/arcano_0.jpg')
+        } else if (carta2 = 1) {
+            img2.setAttribute('carta2', 'cartas/arcano_1.jpg')
+        } else if (carta2 = 2) {
+            img2.setAttribute('carta2', 'cartas/arcano_2.jpg')
+        } else if (carta2 = 3) {
+            img2.setAttribute('carta2', 'cartas/arcano_3.jpg')
+        } else if (carta2 = 4) {
+            img2.setAttribute('carta2', 'cartas/arcano_4.jpg')
+        } else if (carta2 = 5) {
+            img2.setAttribute('carta2', 'cartas/arcano_5.jpg')
+        } else if (carta2 = 6) {
+            img2.setAttribute('carta2', 'cartas/arcano_6.jpg')
+        } else if (carta2 = 7) {
+            img2.setAttribute('carta2', 'cartas/arcano_7.jpg')
+        } else if (carta2 = 8) {
+            img2.setAttribute('carta2', 'cartas/arcano_8.jpg')
+        } else if (carta2 = 9) {
+            img2.setAttribute('carta2', 'cartas/arcano_9.jpg')
+        } else if (carta2 = 10) {
+            img2.setAttribute('carta2', 'cartas/arcano_10.jpg')
+        } else if (carta2 = 11) {
+            img2.setAttribute('carta2', 'cartas/arcano_11.jpg')
+        } else if (carta2 = 12) {
+            img2.setAttribute('carta2', 'cartas/arcano_12.jpg')
+        } else if (carta2 = 13) {
+            img2.setAttribute('carta2', 'cartas/arcano_13.jpg')
+        } else if (carta2 = 14) {
+            img2.setAttribute('carta2', 'cartas/arcano_14.jpg')
+        } else if (carta2 = 15) {
+            img2.setAttribute('carta2', 'cartas/arcano_15.jpg')
+        } else if (carta2 = 16) {
+            img2.setAttribute('carta2', 'cartas/arcano_16.jpg')
+        } else if (carta2 = 17) {
+            img2.setAttribute('carta2', 'cartas/arcano_17.jpg')
+        } else if (carta2 = 18) {
+            img2.setAttribute('carta2', 'cartas/arcano_18.jpg')
+        } else if (carta2 = 19) {
+            img2.setAttribute('carta2', 'cartas/arcano_19.jpg')
+        } else if (carta2 = 20) {
+            img2.setAttribute('carta2', 'cartas/arcano_20.jpg')
+        } else {
+            img2.setAttribute('carta2', 'cartas/arcano_21.jpg')
+        }
+    } else {
+        if (carta3 = 0) {
+            img3.setAttribute('carta3', 'cartas/arcano_0.jpg')
+        } else if (carta3 = 1) {
+            img3.setAttribute('carta3', 'cartas/arcano_1.jpg')
+        } else if (carta3 = 2) {
+            img3.setAttribute('carta3', 'cartas/arcano_2.jpg')
+        } else if (carta3 = 3) {
+            img3.setAttribute('carta3', 'cartas/arcano_3.jpg')
+        } else if (carta3 = 4) {
+            img3.setAttribute('carta3', 'cartas/arcano_4.jpg')
+        } else if (carta3 = 5) {
+            img3.setAttribute('carta3', 'cartas/arcano_5.jpg')
+        } else if (carta3 = 6) {
+            img3.setAttribute('carta3', 'cartas/arcano_6.jpg')
+        } else if (carta3 = 7) {
+            img3.setAttribute('carta3', '.cartas/arcano_7.jpg')
+        } else if (carta3 = 8) {
+            img3.setAttribute('carta3', 'cartas/arcano_8.jpg')
+        } else if (carta3 = 9) {
+            img3.setAttribute('carta3', 'cartas/arcano_9.jpg')
+        } else if (carta3 = 10) {
+            img3.setAttribute('carta3', 'cartas/arcano_10.jpg')
+        } else if (carta3 = 11) {
+            img3.setAttribute('carta3', 'cartas/arcano_11.jpg')
+        } else if (carta3 = 12) {
+            img3.setAttribute('carta3', 'cartas/arcano_12.jpg')
+        } else if (carta3 = 13) {
+            img3.setAttribute('carta3', 'cartas/arcano_13.jpg')
+        } else if (carta3 = 14) {
+            img3.setAttribute('carta3', '.cartas/arcano_14.jpg')
+        } else if (carta3 = 15) {
+            img3.setAttribute('carta3', 'cartas/arcano_15.jpg')
+        } else if (carta3 = 16) {
+            img3.setAttribute('carta3', 'cartas/arcano_16.jpg')
+        } else if (carta3 = 17) {
+            img3.setAttribute('carta3', 'cartas/arcano_17.jpg')
+        } else if (carta3 = 18) {
+            img3.setAttribute('carta3', 'cartas/arcano_18.jpg')
+        } else if (carta3 = 19) {
+            img3.setAttribute('carta3', 'cartas/arcano_19.jpg')
+        } else if (carta3 = 20) {
+            img3.setAttribute('carta3', 'cartas/arcano_20.jpg')
+        } else {
+            img3.setAttribute('carta3', 'cartas/arcano_21.jpg')
+        }
+    
+    }
+    res.appendChild(img1)
+    res.appendChild(img2)
+    res.appendChild(img3)
+    /*
+    document.getElementById('res').appendChild(img1)
+    document.getElementById('res').appendChild(img2)
+    document.getElementById('res').appendChild(img3)
+    */
+}

@@ -1,0 +1,139 @@
+ && valores.value.length <=3
+
+
+Remove all elements after index 2 (incl.)
+
+let myFish = ['angel', 'clown', 'mandarin', 'sturgeon']
+let removed = myFish.splice(2)
+
+// myFish is ["angel", "clown"]
+// removed is ["mandarin", "sturgeon"]
+
+let removed = valores.splice(3)
+
+
+
+
+
+Here we use the splice method to remove two elements starting from position three (zero based index):
+
+var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
+var removed = arr.splice(2,2);
+
+/*removed === [3, 4]arr === [1, 2, 5, 6, 7, 8, 9, 0]*/
+
+
+
+function arrayRemove(arr, value) {return arr.filter(function(ele){ return ele != value; });}var result = arrayRemove(array, 6);// result = [1, 2, 3, 4, 5, 7, 8, 9, 0]
+
+
+} else if (valores.length >= 3) {
+            valores.pop()
+            window.alert('Seleccionar solo 3 cartas!')
+
+
+Using splice() to Remove Elements
+With clever parameter setting, you can use splice() to remove elements without leaving "holes" in the array:
+
+Example
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.splice(0, 1);        
+// Removes the first element of fruits
+
+The first parameter (0) defines the position where new elements should be added (spliced in).
+
+The second parameter (1) defines how many elements should be removed.
+
+The rest of the parameters are omitted. No new elements will be added.
+
+-----------------------------------------
+funcion en tirada de tarot
+
+/*
+function agregarCarta() {
+    if (isNumber(num.value) && !inList(num.value, valores)) {
+        valores.push(Number(num.value))
+        let item = document.createElement('option')
+        item.text = `Carta ${num.value} agregada.`
+        lista.appendChild(item)
+        //res.innerHTML = ''
+        res.innerHTML = `Cantidad de cartas agregadas es ${valores.length}`
+    } else {
+        window.alert('Valor incorrecto o ya encontrado en la lista')
+    }
+    num.value = ''
+    num.focus()
+}
+*/
+
+--------------------------------------------
+function limitVal() {
+    if (valores.length >= 3) {
+        valores.pop()
+        window.alert('Seleccionar solo 3 cartas!')
+    }
+}
+
+----------------------------------------------
+el tema de las imagenes:
+img.src = 'imagemtarde.png'
+
+carta1.src = 
+
+
+//let carta1 = document.querySelector('img#img1')
+//let carta2 = document.querySelector('img#img2')
+//let carta3 = document.querySelector('img#img3')
+
+
+
+let arcano1 = 0
+let arcano2 = 1
+let arcano3 = 2
+let arcano4 = 3
+let arcano5 = 4
+let arcano6 = 5
+let arcano7 = 6
+let arcano8 = 7
+let arcano9 = 8
+let arcano10 = 9
+let arcano11 = 10
+let arcano12 = 11
+let arcano13 = 12
+let arcano14 = 13
+let arcano15 = 14
+let arcano16 = 15
+let arcano17 = 16
+let arcano18 = 17
+let arcano19 = 18
+let arcano20 = 19
+let arcano21 = 20
+let arcano22 = 21
+
+----------------------------------------
+js de ejercicio de referencia:
+function finalizar() {
+    if (valores.length == 0) {
+        window.alert('Adicione valores antes de finalizar!')
+    } else {
+        let tot = valores.length
+        let maior = valores[0]
+        let menor = valores[0]
+        let soma = 0
+        let medio = 0
+        for(let pos in valores) {
+            soma += valores[pos]
+            if (valores[pos] > maior)
+            maior = valores[pos]
+            if (valores[pos] < menor)
+            menor = valores[pos]
+        }
+        media = soma / tot
+        res.innerHTML = ''
+        res.innerHTML += `<p>Ao todo, temos ${tot} números cadastrados.</p>`
+        res.innerHTML += `<p>O maior valor informado foi ${maior}.</p>`
+        res.innerHTML += `<p>O menor valor informado foi ${menor}.</p>`
+        res.innerHTML += `<p>Somando todos os valores, temos ${soma}</p>`
+        res.innerHTML += `<p>A média dos valores digitados é ${media}</p>`
+    }
+}
