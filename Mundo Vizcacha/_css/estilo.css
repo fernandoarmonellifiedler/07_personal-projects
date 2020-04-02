@@ -1,0 +1,227 @@
+@charset "UTF-8"
+@import url('https://fonts.googleapis.com/css?family=Lacquer&display=swap');
+@font-face {
+	font-family: 'tituloco';
+	src: url("../_fonts/Magiera Script.ttf");
+}
+body {
+	background: url(../_imagenes/pelos.jpg) no-repeat center top;
+	font-family: arial, sans-serif;
+}
+/*fomatacion de la interfase*/
+div#interface {
+	width: 900px;
+	margin: -20px auto 0px auto;
+	box-shadow: 0px 0px 10px rgba(0,0,0,.5);
+	padding: 10px;
+	background-color: rgba(224, 224, 224, .8);
+
+}
+/*fomatacion de titulos y parrafo*/
+p {
+	text-align: justify;
+	text-indent: 50px;
+	font-family: lucida console;
+	font-size: 14pt;
+	color: black;
+}		
+h1 {
+	font-family: lucida console;
+	font-size: 50pts;
+	color: magenta;
+	text-shadow: 2px 2px 2px yellow;	
+}
+h2 {
+	font-family: ms gothic;
+	font-size: 25pts;
+	color: black;
+}
+a {
+	color: #606060;
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
+header#encabezado img#icono {
+	position: absolute;
+	left: 940px;
+	top: 50px;
+}
+header#encabezado {
+	border-bottom: 1px #606060 solid;
+	height: 150px;
+	background: url("../_logos/logomarca.png") no-repeat 100px -40px;
+}
+header#encabezado h1{
+	font-family: 'tituloco', sans-serif;
+	font-size: 32px;
+	margin-bottom: 0px;
+}
+header#encabezado h2{
+	font-family: 'Lacquer', sans-serif;
+	font-size: 20px;
+	margin-top: -20px;
+}
+/*separacion para tipos de imagenes*/
+figure.foto-subtitulada {
+	position: relative;
+	border: 8px solid #a5fff3;
+	box-shadow: 1px 1px 4px black;
+}
+figure.foto-subtitulada img {
+	width: 100%;
+	height: 100%;
+}
+/*bloque oscurito*/
+figure.foto-subtitulada figcaption{
+	opacity: 0;
+	position: absolute;
+	top: 0px;
+	background-color: rgba(0, 0, 0, 0.4);
+	color: white;
+	width: 100%;
+	height: 100%;
+	padding: 1px;
+	box-sizing: border-box;
+	transition: opacity 1s;
+}
+figure.foto-subtitulada:hover figcaption {
+	opacity: 1;
+}
+
+/*formatacion del menu*/
+nav#menu {
+	display: block;
+}
+nav#menu ul{
+	list-style: none;
+	text-transform: uppercase;
+	position: absolute;
+	top: -20px;
+	left: 600px;
+}
+nav#menu li{
+	display: inline-block;
+	background-color: #3fcfdc;
+	padding: 10px;
+	margin: 2px;
+	transition: background-color 3s;
+}
+nav#menu li:hover {
+	background-color: #4adf9b;
+}
+nav#menu a{
+	color: #912f90;
+	text-decoration: none;
+}
+nav#menu a:hover{
+	color: white;
+}
+nav#menu h1{
+	display: none;
+}
+section#cuerpo {
+	display: block;
+	width: 550px;
+	float: left;
+	border-right: 1px solid black;
+	padding-right: 20px;
+}
+/*article 1*/
+article#noticia-principal h2{
+font-size: 18pt;
+color: #606060;
+background-color: #dddddd;
+padding: 5px 0px 5px 0px;
+margin: 10px 0px 10px 0px;
+}
+/*formato del encabezado de articulo 1*/
+header#encabezado-articulo1 h1 {
+	font-family: lucida console;
+	font-size: 22pt;
+	color: magenta;
+	text-shadow: 2px 2px 2px yellow;
+	margin-top: 0px;
+}
+header#encabezado-articulo1 h2 {
+	font-family: ms gothic;
+	font-size: 14pt;
+	color: black;
+	background: none;
+	margin-top: -30px;
+}
+header#encabezado-articulo1 h3 {
+	font-size: 12pt;
+}
+.derecha {
+	text-align: right;
+}
+/*comenzamos con tablas*/
+table#tablatec {
+	border: 1px solid #606060;
+	border-spacing: 0px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-bottom: 20px;
+}
+table#tablatec td {
+	border: 1px solid #404040;
+	padding: 10px;
+}
+table#tablatec td.ci {
+	color: #ffffff;
+	background-color: #606060;
+	vertical-align: top;
+	font-weight: bold;
+	text-align: right;
+}
+table#tablatec td.cd {
+	background-color: #cecece;
+}
+table#tablatec caption {
+	color: #888888;
+	font-size: 14pt;
+	font-weight: bolder;
+}
+table#tablatec caption span {
+	display: block;
+	float: right;
+	color: #000000;
+	font-size: 8pt;
+	margin-bottom: 0px;
+}
+/*seccion lateral*/
+aside#lateral {
+	display: block;
+	width: 300px;
+	float: right;
+	margin-top: 75px;
+	background-color: rgba(249, 146, 250, .3);
+	box-shadow: 2px 2px 2px rgba(0,0,0,.5)
+}
+aside#lateral h1 {
+	font-family: 'tituloco';
+	text-align: center;
+	background-color: #f0ff00;
+
+}
+aside#lateral h2 {
+	
+}
+/*seccion pie de pagina*/
+footer#pie {
+	clear: both;
+	border-top: 1px solid black;
+}
+footer#pie p{
+	text-align: center;
+}
+
+img#icono {
+	width: 300px;
+}
+img#fotosec {
+	margin-right: auto;
+	margin-left: auto;
+}
