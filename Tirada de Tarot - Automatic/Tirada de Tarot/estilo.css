@@ -9,7 +9,8 @@ header {
 }
 
 p {
-    font-size: 15px;
+    font-size: 20px;
+    text-align: center;
 }
 
 section {
@@ -17,6 +18,7 @@ section {
     border-radius: 10px;
     padding: 15px;
     width: 550px;
+    height: 200px;
     margin: auto;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.37);
 }
@@ -25,4 +27,13 @@ footer {
     color: white;
     text-align: center;
     font-style: italic;
+}
+
+button {
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    display: block;
+    margin-top: 20px;
+    font: normal 20pt arial;
 }
