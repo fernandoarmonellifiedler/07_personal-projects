@@ -37,3 +37,11 @@ button {
     margin-top: 20px;
     font: normal 20pt arial;
 }
+
+div#res {
+    text-align: center;
+}
+
+img {
+    padding: 10px;
+}
