@@ -22,15 +22,24 @@ function asignarArcano() {
     }
 }
 
-/*
-inicio()
-console.log(carta[0])
-console.log(carta[1])
-console.log(carta[2])
+/* sugestão feita por tiago
+const img1 = document.createElement('img')
+img1.setAttribute('class', 'foto')
+const img2 = document.createElement('img')
+img2.setAttribute('class', 'foto')
+const img3 = document.createElement('img')
+img3.setAttribute('class', 'foto')
 
-asignarArcano()
-
-console.log(arc[4])
-*/
-// document.getElementById("image").src = "pic_mountain.jpg";
-//img[i].url=`cartas/arcano_${i}.jpg`
+function tirada() {
+	if (valores.length <= 2) {
+		window.alert("Agrega 3 cartas para realizar la tirada")
+	} else {
+		img1.setAttribute('src', `cartas/arcano_${valores[0]}.jpg`);
+		document.getElementById('res').appendChild(img1);
+		img2.setAttribute('src', `cartas/arcano_${valores[1]}.jpg`);
+		document.getElementById('res').appendChild(img2);
+		img3.setAttribute('src', `cartas/arcano_${valores[2]}.jpg`);
+		document.getElementById('res').appendChild(img3);
+	}
+});
+}
