@@ -27,3 +27,18 @@ function tirada() {
 	}
 });
 }
+
+
+
+		if (carta[1] == carta[0]){
+			//carta[1] = Number(carta[1].value) + 1
+			carta[1] = getCarta(0,21)
+		} else if (carta[2] == carta[0] || carta[2] == carta[1]){
+			//carta[2] = Number(carta[2].value) + 1
+			carta[2] = getCarta(0,21)
+		} 
+
+
+if (carta[i] == carta[0] || carta[i] == carta[1] || carta[i] == carta[2]) {
+			carta[i] = carta[i].value + 1
+		} 

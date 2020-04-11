@@ -8,13 +8,11 @@ function getCarta(min , max) {
 
 //function para asignar valores al array carta[0, 1, 2]
 function inicio() {
-    for (let i = 0 ; i <= 2 ; i++) 
-        carta[i] = getCarta(0,21)
-        //return carta[i]           
+    for (var i = 0 ; i <= 2 ; i++) 
+		carta[i] = getCarta(0,21)
 }
 
 function tirada() {
-	
 	res.innerHTML = ''
 	const img1 = document.createElement('img')
 	img1.setAttribute('class', 'foto')
@@ -29,5 +27,4 @@ function tirada() {
 	document.getElementById('res').appendChild(img2);
 	img3.setAttribute('src', `_img/arcano_${carta[2]}.jpg`);
 	document.getElementById('res').appendChild(img3);
-
 }
