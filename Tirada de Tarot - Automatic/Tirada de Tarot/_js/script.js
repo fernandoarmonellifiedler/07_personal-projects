@@ -1,5 +1,5 @@
 let carta = []
-let arc = []
+let aux = []
 // function para seleccionar un valor random
 function getCarta(min , max) {
     const valor = Math.random() * (max - min) + min
@@ -10,6 +10,8 @@ function getCarta(min , max) {
 function inicio() {
     for (var i = 0 ; i <= 2 ; i++) 
 		carta[i] = getCarta(0,21)
+		//for (var c = 0 ; c <= 2 ; c++)
+		//	aux[] =
 }
 
 function tirada() {

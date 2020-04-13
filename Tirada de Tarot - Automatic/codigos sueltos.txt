@@ -42,3 +42,18 @@ function tirada() {
 if (carta[i] == carta[0] || carta[i] == carta[1] || carta[i] == carta[2]) {
 			carta[i] = carta[i].value + 1
 		} 
+
+
+
+
+
+
+Para i <- 1 ate 3 faca
+        Time1 <- T[i]
+        Para c <- 1 ate 3 faca
+             Time2 <- T[c]
+             Se (Time1 <> Time2) entao
+                 Escreval(Time1:5 , " vs " , Time2)
+             fimse
+        fimpara
+    fimpara
