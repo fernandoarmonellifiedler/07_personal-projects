@@ -8,10 +8,15 @@ function getCarta(min , max) {
 
 //function para asignar valores al array carta[0, 1, 2]
 function inicio() {
-    for (var i = 0 ; i <= 2 ; i++) 
+    for (var i = 0 ; i <= 2 ; i++) {
 		carta[i] = getCarta(0,21)
-		//for (var c = 0 ; c <= 2 ; c++)
-		//	aux[] =
+		while (carta[1] == carta[0]) {
+			carta[1] = getCarta(0,21)
+		}
+		while (carta[2] == carta[1] || carta[2] == carta[0] ) {
+			carta[2] = getCarta(0,21)
+		} 
+	}		
 }
 
 function tirada() {
