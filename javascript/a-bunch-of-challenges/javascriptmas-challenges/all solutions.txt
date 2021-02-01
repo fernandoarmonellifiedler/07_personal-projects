@@ -1,0 +1,71 @@
+All my solutions for JavaScriptMas challenges
+
+1. Candies:
+https://scrimba.com/scrim/cobed4fa2bb7db8ad01fa97ca
+
+2. Deposit Profit:
+https://scrimba.com/learn/adventcalendar/note-at-0-58-cod704e8ca2f7ab57cb6ee192
+
+3. Chunky Monkey:
+https://scrimba.com/learn/adventcalendar/note-at-0-48-cof9842caa576181c641785a3
+
+4. Century from year:
+https://scrimba.com/learn/adventcalendar/note-at-0-06-co9b14fcab33291104e0931b8
+
+5. Reverse a string: 
+https://scrimba.com/learn/adventcalendar/note-at-1-13-co4614c979b3145eebfe44501
+
+6. Sort by length:
+https://scrimba.com/learn/adventcalendar/note-at-0-38-cobd2456da2d5017e1f586ab4
+
+7. Count vowel consonant:
+https://scrimba.com/learn/adventcalendar/note-at-1-21-coce540049f8ca7b515ccbd22
+
+8. Rolling dice: On process
+
+9. Sum odd Fibonacci numbers:
+https://scrimba.com/scrim/co88d4507af466a0d8fef8809
+
+10. Adjacent element product:
+https://scrimba.com/scrim/co09e42a9adebd18a29a46207
+
+11. Avoid obstacles:
+https://scrimba.com/scrim/cobaf4cbcaf96aa4313c0854c
+
+12. Valid Time:
+https://scrimba.com/scrim/co89845f0a4f6cd6e2ac5f682
+
+13. Extract each Kth:
+https://scrimba.com/scrim/co28e4af6b6f6461ee090bc6f
+
+14. Maximal adjacent difference:
+https://scrimba.com/scrim/coaf24aa0988a7541c3b4fbbd
+
+15. Carousel: Not ready
+
+16. Insert dashes:
+https://scrimba.com/scrim/co49b4716afe8f42d413d7e3a
+
+17. Different symbols naive:
+https://scrimba.com/scrim/co33e4d54935ffc0d776a7285
+
+18. Array previous less:
+https://scrimba.com/scrim/coe414a288ab4c7f820b931ed
+
+19. Alphabet subsequence:
+https://scrimba.com/scrim/coafb438894cbcdfb6f500691
+
+20. Domain type:
+https://scrimba.com/scrim/co55e4ae48a1845591d5c3481
+
+21. Sum of two:
+https://scrimba.com/scrim/co6544c69809d5daa410ff92a
+
+22. Extract matrix column:
+https://scrimba.com/scrim/co55240929a832c1abafcef34
+
+23. Social media input
+
+
+24. Test your agility
+https://scrimba.com/scrim/co2ea405eb02d3be386b6ea62
