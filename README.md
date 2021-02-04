@@ -4,7 +4,7 @@ Full projects generally created during diferent courses and exercises:
 ===========================================
 Javascript:
 - Tirada de Tarot:
-https://github.com/fernandoarmonellifiedler/tirada-tarot
+https://github.com/fernandoarmonellifiedler/personal-projects/tree/master/javascript/tirada-tarot
 
 https://javascript-tirada-de-tarot.netlify.app/
 -----------------------
@@ -58,13 +58,13 @@ https://react-gradebook.netlify.app/
 https://github.com/fernandoarmonellifiedler/diplomatura-web-fullstack/tree/main/ejercicios/modulo-5_react-inicial/unidad-2_componentes/tp
 -----------------------
 - Bookslist:
-
+https://github.com/fernandoarmonellifiedler/front-end-libraries/tree/main/react-2020/tutorial
 
 https://react-bookslist.netlify.app
 ===========================================
 Node:
 - Where is my book? (API REST y base de datos)
-https://github.com/fernandoarmonellifiedler/diplomatura-web-fullstack/blob/main/ejercicios/tp-integrador(M3-M4)/00_consigna.js
+https://github.com/fernandoarmonellifiedler/diplomatura-web-fullstack/tree/main/ejercicios/modulo-4_nodejs-intermedio/tp-integrador(M4-M5)
 ===========================================
 Web developer:
 - Living the simple life (flexbox):
