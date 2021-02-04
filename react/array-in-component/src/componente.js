@@ -1,7 +1,7 @@
 import React from 'react';
 import Titulo from './titulo';
 import Descripcion from './descripcion';
-import Imagen from './imagen';
+import Image from './image';
 
 export default class Componente extends React.Component {
 
@@ -13,7 +13,7 @@ export default class Componente extends React.Component {
                     <Descripcion name={this.props.compDescr} />
                 </div>
                 <div className="div-comp-img">
-                    <Imagen src={this.props.compUrl} />
+                    <Image src={this.props.compUrl} />
                 </div>
             </div>
         );

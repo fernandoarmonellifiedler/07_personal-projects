@@ -1,12 +1,3 @@
-/* Consigna:
-- Modificar el carrito desarrollado en la Unidad 2 para utilizar funciones arrow.
-
-NOTAS:
-- Reemplazé el loop for por forEach para recorrer el vector de productos y el vector carritoConPrecio.
-- Dentro del forEach utilizé funciones arrow.
-- sustituidas las funciones anónimas por funciones arrow dentro de los listeners en los botones.
-*/
-
 var productos = [
     {nombre: "harina", precio: 35},
     {nombre: "pan", precio: 25},

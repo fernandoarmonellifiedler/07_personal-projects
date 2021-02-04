@@ -1,4 +1,4 @@
-/* Design a stop/watch object
+/* Stop/watch object
 
 - sw object has a few members:
     - duration: which is a property
