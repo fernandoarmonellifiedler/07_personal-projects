@@ -1,6 +1,4 @@
-/* Trabajo pr�ctico del M�dulo 3 y 4 INTEGRADOR
-
-TP Integrador Modulo 3 y 4: Where is my books?
+/* Where is my books?
 
 Se trata de un proyecto de desarrollo backend en NodeJS, utilizando API Rest y base de datos MySQL para conocer si los libros del usuario se encuentran en su biblioteca o prestados. En caso de estar prestado, a quien se los presto.
 
@@ -18,18 +16,6 @@ Atención:
 - Se solicita verificar que el usuario no envie los campos requeridos solo con espacios en blanco.
 
 - Para asegurar los aciertos de las busquedas, se sugiere el guardado en mayusculas de todos los campos alfanumericos y recordar hacer las verificaciones teniendo en cuenta esto.
-
-----------------------------------------------
-Sobre presentación del trabajo:
-
-Se evaluara la correcta implementacion, el uso de try/catch, async-await, cors, express, validacion de los datos solicitados, manejo de errores.
-
-El tp se realizara en grupos de 5 o 6 personas que seran elegidas al azar por el campus
-
-La entrega se realizara en formato ZIP y se deberan incluir: package.json, package-lock.json, app.js NO INCLUIR node_modules (va a descontar puntaje el envio de esta carpeta).
-
-Solo 1 entrega por equipo. Se debe incluir un archivo txt con el numero de grupo y el nombre y apellido de los integrantes.
-
 
 ===============================================
 
