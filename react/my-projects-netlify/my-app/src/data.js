@@ -63,4 +63,11 @@ export default [
     name: 'react-bookslist',
     link: 'https://react-bookslist.netlify.app',
   },
+  {
+    id: 10,
+    img:
+      'https://raw.githubusercontent.com/fernandoarmonellifiedler/personal-projects/master/react/my-projects-netlify/my-app/src/images/img_10.png',
+    name: 'react-birthday-reminder',
+    link: 'https://react-birthdayreminder.netlify.app/',
+  },
 ];
