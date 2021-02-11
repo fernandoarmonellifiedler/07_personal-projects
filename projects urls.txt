@@ -2,7 +2,7 @@ Full projects generally created during diferent courses and exercises:
 ===========================================
 Javascript:
 - Tirada de Tarot:
-https://github.com/fernandoarmonellifiedler/tirada-tarot
+https://github.com/fernandoarmonellifiedler/personal-projects/tree/master/javascript/tirada-tarot
 -----------------------
 - ToDo App List:
 https://github.com/fernandoarmonellifiedler/js-practices/tree/main/5-javascript-projects/01_to-do-app-list
@@ -37,13 +37,27 @@ https://github.com/fernandoarmonellifiedler/js-practices/blob/main/object-orient
 ===========================================
 React:
 - Tic Tac Toe game:
-https://github.com/fernandoarmonellifiedler/front-end-libraries/tree/main/intro-react
+https://github.com/fernandoarmonellifiedler/front-end-libraries/tree/main/tictactoe-game/my-app
 -----------------------
 - Gradebook: (check for problems here!)
 https://github.com/fernandoarmonellifiedler/intro-react
 -----------------------
 - Exhibir vector en componente:
 https://github.com/fernandoarmonellifiedler/diplomatura-web-fullstack/tree/main/ejercicios/modulo-5_react-inicial/unidad-2_componentes/tp
+-----------------------
+- booklist
+https://github.com/fernandoarmonellifiedler/front-end-libraries/tree/main/josh-smilga_tutorials/01_basics/tutorial
+-----------------------
+- my-projects-netlify:
+https://github.com/fernandoarmonellifiedler/personal-projects/tree/master/react/my-projects-netlify/my-app
+-----------------------
+- living-the-simple-life-with-react:
+https://github.com/fernandoarmonellifiedler/web-developer-exercises/tree/main/flexbox-exercise/ex004
+-----------------------
+- birthday-reminder:
+https://github.com/fernandoarmonellifiedler/front-end-libraries/tree/main/josh-smilga_tutorials/code-15-react-projects/react-projects-master/1-birthday-reminder/my-app
+-----------------------
+
 ===========================================
 Node:
 - Where is my book? (API REST y base de datos)

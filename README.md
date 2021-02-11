@@ -45,7 +45,7 @@ repo for grouping personal projects product of my studies and practices on diffe
 
 ## React
 1. Tic Tac Toe game
-    - <a href="https://github.com/fernandoarmonellifiedler/front-end-libraries/tree/main/intro-react" target="_blank">Github repo</a>
+    - <a href="https://github.com/fernandoarmonellifiedler/front-end-libraries/tree/main/tictactoe-game/my-app" target="_blank">Github repo</a>
     - <a href="https://react-tic-tac-toe-gameapp.netlify.app/" target="_blank">Website</a>
 
 2. Gradebook
@@ -57,8 +57,16 @@ repo for grouping personal projects product of my studies and practices on diffe
     - <a href="https://react-array-in-component.netlify.app" target="_blank">Website</a>
 
 4. Bookslist
-    - <a href="https://github.com/fernandoarmonellifiedler/front-end-libraries/tree/main/react-2020/tutorial" target="_blank">Github repo</a>
+    - <a href="https://github.com/fernandoarmonellifiedler/front-end-libraries/tree/main/josh-smilga_tutorials/01_basics/tutorial" target="_blank">Github repo</a>
     - <a href="https://react-bookslist.netlify.app" target="_blank">Website</a>
+
+5. my-projects-netlify webpage
+    - <a href="https://github.com/fernandoarmonellifiedler/personal-projects/tree/master/react/my-projects-netlify/my-app" target="_blank">Github repo</a>
+    - <a href="https://fernando-armonelli-fiedler.netlify.app" target="_blank">Website</a>
+
+6. birthday-reminder
+    - <a href="https://github.com/fernandoarmonellifiedler/front-end-libraries/tree/main/josh-smilga_tutorials/code-15-react-projects/react-projects-master/1-birthday-reminder/my-app" target="_blank">Github repo</a>
+    - <a href="https://react-birthdayreminder.netlify.app" target="_blank">Website</a>
     
 ---
 
