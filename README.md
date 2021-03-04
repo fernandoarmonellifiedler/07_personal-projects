@@ -43,7 +43,7 @@ repo for grouping personal projects as a result of my studies and practices on p
    - <a href="https://github.com/fernandoarmonellifiedler/personal-projects/tree/master/react/my-projects-netlify/my-app" target="_blank">Github repo</a>
    - <a href="https://fernando-armonelli-fiedler.netlify.app" target="_blank">Website</a>
 
-2. myBooks
+2. myBooks (en proceso... adaptando para funcionar sin conectarse a la base de datos)
 
    - <a href="https://github.com/fernandoarmonellifiedler/diplomatura-web-fullstack/tree/main/ejercicios/modulo-6_react-intermedio/tp-integrador-react" target="_blank">Github repo</a>
    - <a href="https://react-mybooks.netlify.app/" target="_blank">Website</a>
