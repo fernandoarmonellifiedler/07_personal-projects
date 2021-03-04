@@ -1,18 +1,19 @@
 import React, { useState } from 'react';
-import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid';
 import CategoriaLibrosModal from '../components/CategoriaLibrosModal.js';
 import CategoriaEdit from '../components/CategoriaEdit';
 
 // COMPONENTE PRINCIPAL
 const Categoria = (props) => {
   const [nombre, setNombre] = useState('');
-  const [id, setId] = useState('');
-
+  const [inputId, setInputId] = useState('');
+  // console.log(props.state.categorias);
+console.log(inputId);
   // funcion para re-renderizar componentes
   const handleRender = () => {
     try {
       const response = props.state.categorias;
-      if (!response|| response.length == 0) return;
+      if (!response || response.length == 0) return;
       props.dispatch({ type: 'FETCH_CATEGORIA_LIST', payload: response });
     } catch (e) {
       console.log(e);
@@ -21,19 +22,32 @@ const Categoria = (props) => {
 
   // funcion para abrir/cerrar el modal
   const handleModalEdit = () => {
-    props.dispatch({
-      type: 'SWITCH_CATEGORIA_EDIT_MODAL',
-      payload: props.state.categoriaEditModal,
-    });
-    
+    if (props.state.categoriaEditModal === false) {
+      props.dispatch({
+        type: 'SWITCH_CATEGORIA_EDIT_MODAL',
+        payload: props.state.categoriaEditModal,
+      });
+    } else {
+      props.dispatch({
+        type: 'SWITCH_CATEGORIA_EDIT_MODAL',
+        payload: props.state.categoriaEditModal,
+      });
+    }
   };
 
   // funcion para abrir/cerrar el modal
   const handleModalVerMas = () => {
-    props.dispatch({
-      type: 'SWITCH_CATEGORIA_MODAL',
-      payload: props.state.categoriaLibrosModal,
-    });
+    if (props.state.categoriaLibrosModal === false) {
+      props.dispatch({
+        type: 'SWITCH_CATEGORIA_MODAL',
+        payload: props.state.categoriaLibrosModal,
+      });
+    } else {
+      props.dispatch({
+        type: 'SWITCH_CATEGORIA_MODAL',
+        payload: props.state.categoriaLibrosModal,
+      });
+    }
   };
 
   // ADD nueva categoria
@@ -68,9 +82,7 @@ const Categoria = (props) => {
   const handleDelete = (e) => {
     try {
       const response = props.state.libros;
-      if (
-        response.find((unLibro) => unLibro.categoria_id == e.target.value)
-      ) {
+      if (response.find((unLibro) => unLibro.categoria_id == e.target.value)) {
         return window.alert('Esa categoria aun tiene libros asociados!');
       }
     } catch (e) {
@@ -79,7 +91,7 @@ const Categoria = (props) => {
     try {
       const categoriaId = e.target.value;
       props.dispatch({ type: 'CATEGORIA_REMOVE_ITEM', payload: categoriaId });
-      setId('')
+      setInputId('');
       handleRender();
     } catch (e) {
       console.log(e);
@@ -87,11 +99,11 @@ const Categoria = (props) => {
   };
   // PUT categoria
   const handleEdit = (e) => {
-    setId('');
+    setInputId('');
     const categoriaId = e.target.value;
     if (categoriaId) {
       handleModalEdit();
-      setId(categoriaId);
+      setInputId(categoriaId);
     } else {
       handleModalEdit();
     }
@@ -108,7 +120,7 @@ const Categoria = (props) => {
           type: 'FETCH_BOOKS_ON_CATEGORY',
           payload: categoriaId,
         });
-        setId('')
+        setInputId('');
       } catch (e) {
         console.log(e);
       }
@@ -130,7 +142,7 @@ const Categoria = (props) => {
       {/* Modal para editar categoria */}
       {props.state.categoriaEditModal && (
         <CategoriaEdit
-          catId={id}
+          catId={inputId}
           handleEdit={handleEdit}
           handleRender={handleRender}
           handleModalEdit={handleModalEdit}
@@ -160,30 +172,31 @@ const Categoria = (props) => {
 
         {/* iterando sobre la lista de categorias de la bd */}
         <h3>Listado de categorías</h3>
-        {props.state.categorias.map((unaCategoria) => {
-          const { id, nombre_categoria } = unaCategoria;
-          return (
-            <div className='item' key={id}>
-              <div className='item-datos'>
-                <h5 className='title-categoria'>
-                  {nombre_categoria || 'sin categoria'}
-                </h5>
-                <p>Categoria Id: {id}</p>
-                <button onClick={handleVerMas} value={id}>
-                  Ver Libros
-                </button>
+        {props.state.categorias &&
+          props.state.categorias.map((unaCategoria) => {
+            const { id, nombre_categoria } = unaCategoria;
+            return (
+              <div className='item' key={id}>
+                <div className='item-datos'>
+                  <h5 className='title-categoria'>
+                    {nombre_categoria || 'sin categoria'}
+                  </h5>
+                  <p>Categoria Id: {id}</p>
+                  <button onClick={handleVerMas} value={id}>
+                    Ver Libros
+                  </button>
+                </div>
+                <div className='item-botones'>
+                  <button className='btn' onClick={handleEdit} value={id}>
+                    Editar
+                  </button>
+                  <button className='btn' onClick={handleDelete} value={id}>
+                    Eliminar
+                  </button>
+                </div>
               </div>
-              <div className='item-botones'>
-                <button className='btn' onClick={handleEdit} value={id}>
-                  Editar
-                </button>
-                <button className='btn' onClick={handleDelete} value={id}>
-                  Eliminar
-                </button>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </section>
     </>
   );

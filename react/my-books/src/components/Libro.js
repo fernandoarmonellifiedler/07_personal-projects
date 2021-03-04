@@ -248,7 +248,7 @@ const Libro = (props) => {
         </form>
         {/* iterando la lista de libros de la bd */}
         <h3>Listado de libros</h3>
-        {props.state.libros.map((unLibro) => {
+        {props.state.libros && props.state.libros.map((unLibro) => {
           const {
             id,
             nombre_libro,

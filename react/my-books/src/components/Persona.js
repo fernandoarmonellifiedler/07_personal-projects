@@ -163,7 +163,7 @@ const Persona = (props) => {
         </form>
         {/* iterando la lista de personas de la bd */}
         <h3>Listado de personas</h3>
-        {props.state.personas.map((unaPersona) => {
+        {props.state.personas && props.state.personas.map((unaPersona) => {
           const { id, nombre, apellido, alias, email } = unaPersona;
           const tieneLibros = props.state.libros.filter(
             (unLibro) => unLibro.persona_id == id
