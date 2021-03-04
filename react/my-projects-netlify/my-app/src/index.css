@@ -147,7 +147,8 @@ p {
 
 .container {
   text-align: center;
-  margin-top: 5rem;
+  margin-top: 3rem;
+  margin-bottom: 0;
 }
 .btn {
   display: inline-block;
@@ -183,6 +184,7 @@ p {
   flex-direction: column;
   justify-content: space-between;
   max-width: var(--fixed-width);
+  width: 20rem;
   margin: 2rem auto;
   align-items: center;
   border-radius: var(--radius);
@@ -200,7 +202,7 @@ p {
   object-fit: cover;
   width: 200px;
   height: 200px;
-  border-radius: 50%;
+  border-radius: 40%;
   margin-bottom: 1rem;
 }
 
@@ -225,4 +227,20 @@ p {
 .item a:hover {
   color: var(--clr-primary-4);
   transition-duration: 0.4s;
+}
+
+nav {
+  text-align: center;
+  background-color: var(--clr-grey-9);
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: var(--radius);
+}
+
+.nav-ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: auto 1rem;
 }

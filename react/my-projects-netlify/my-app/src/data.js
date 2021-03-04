@@ -2,7 +2,7 @@ export default [
   {
     id: 1,
     img:
-      'https://raw.githubusercontent.com/fernandoarmonellifiedler/personal-projects/master/react/my-projects-netlify/my-app/src/images/img_1.png',
+      'https://raw.githubusercontent.com/fernandoarmonellifiedler/personal-projects/master/react/my-projects-netlify/my-app/src/images/img_11.png',
     name: 'React-MyBooks',
     link: 'https://react-mybooks.netlify.app/',
   },
