@@ -33,10 +33,11 @@ export const reducer = (state, action) => {
     };
   }
   if (action.type === 'CATEGORIA_ADD_ITEM') {
-    const nuevaCategorias = [...state.categorias, action.payload];
+    const nuevaCategoria = action.payload;
+    const nuevoState = state.categorias.push(nuevaCategoria);
     return {
       ...state,
-      categorias: nuevaCategorias,
+      categorias: nuevoState,
     };
   }
   if (action.type === 'CATEGORIA_EDIT_ITEM') {
@@ -47,6 +48,9 @@ export const reducer = (state, action) => {
     };
   }
   if (action.type === 'CATEGORIA_REMOVE_ITEM') {
+    // const categoriaToDelete = state.categorias.find((unaCategoria) => unaCategoria.id == action.payload);
+    // const findIndex = state.categorias.indexOf(categoriaToDelete)
+    // const newCategoriaState= state.categorias.slice(0,findIndex).concat(state.categorias.slice(findIndex + 1));
     return {
       ...state,
       categorias: state.categorias.filter((unaCategoria) => {
@@ -70,10 +74,11 @@ export const reducer = (state, action) => {
   }
   // Libro Component
   if (action.type === 'BOOK_ADD_ITEM') {
-    const nuevoLibros = [...state.libros, action.payload];
+    const nuevoLibro = action.payload;
+    const nuevoState = state.libros.push(nuevoLibro);
     return {
       ...state,
-      libros: nuevoLibros,
+      libros: nuevoState,
     };
   }
   if (action.type === 'BOOK_EDIT_ITEM') {
@@ -121,10 +126,11 @@ export const reducer = (state, action) => {
   }
   // Persona Component
   if (action.type === 'PERSONA_ADD_ITEM') {
-    const nuevaPersona = [...state.personas, action.payload];
+    const nuevaPersona = action.payload;
+    const nuevoState = state.personas.push(nuevaPersona);
     return {
       ...state,
-      personas: nuevaPersona,
+      personas: nuevoState,
     };
   }
   if (action.type === 'PERSONA_EDIT_ITEM') {

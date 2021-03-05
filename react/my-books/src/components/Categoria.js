@@ -7,19 +7,6 @@ import CategoriaEdit from '../components/CategoriaEdit';
 const Categoria = (props) => {
   const [nombre, setNombre] = useState('');
   const [inputId, setInputId] = useState('');
-  // console.log(props.state.categorias);
-console.log(inputId);
-  // funcion para re-renderizar componentes
-  const handleRender = () => {
-    try {
-      const response = props.state.categorias;
-      if (!response || response.length == 0) return;
-      props.dispatch({ type: 'FETCH_CATEGORIA_LIST', payload: response });
-    } catch (e) {
-      console.log(e);
-    }
-  };
-
   // funcion para abrir/cerrar el modal
   const handleModalEdit = () => {
     if (props.state.categoriaEditModal === false) {
@@ -54,15 +41,16 @@ console.log(inputId);
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      if (
-        props.state.categorias.find(
-          (unaCategoria) =>
-            unaCategoria.nombre_categoria == nombre.toUpperCase()
-        )
-      ) {
-        return window.alert('Esa categoria ya existe!');
-      }
       if (nombre) {
+        if (props.state.categorias !== undefined &&
+          props.state.categorias.find(
+            (unaCategoria) =>
+              unaCategoria.nombre_categoria == nombre.toUpperCase()
+          )
+        ) {
+          return window.alert('Esa categoria ya existe!');
+        }
+
         const addCategoria = {
           id: nanoid(),
           nombre_categoria: nombre.toUpperCase(),
@@ -70,7 +58,7 @@ console.log(inputId);
 
         props.dispatch({ type: 'CATEGORIA_ADD_ITEM', payload: addCategoria });
         setNombre('');
-        handleRender();
+        props.handleRender();
       } else {
         window.alert('No puedes ingresar valores en blanco');
       }
@@ -85,14 +73,11 @@ console.log(inputId);
       if (response.find((unLibro) => unLibro.categoria_id == e.target.value)) {
         return window.alert('Esa categoria aun tiene libros asociados!');
       }
-    } catch (e) {
-      console.log(e);
-    }
-    try {
+    
       const categoriaId = e.target.value;
       props.dispatch({ type: 'CATEGORIA_REMOVE_ITEM', payload: categoriaId });
       setInputId('');
-      handleRender();
+      props.handleRender();
     } catch (e) {
       console.log(e);
     }
@@ -144,7 +129,7 @@ console.log(inputId);
         <CategoriaEdit
           catId={inputId}
           handleEdit={handleEdit}
-          handleRender={handleRender}
+          handleRender={props.handleRender}
           handleModalEdit={handleModalEdit}
           state={props.state}
           dispatch={props.dispatch}

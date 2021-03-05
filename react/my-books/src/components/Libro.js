@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid';
 import LibroEdit from '../components/LibroEdit';
 import LibroPrestar from '../components/LibroPrestar';
 
@@ -11,17 +11,6 @@ const Libro = (props) => {
   const [persona, setPersona] = useState('');
   const [editId, setEditId] = useState('');
   const [prestarId, setPrestarId] = useState('');
-
-  // funcion para re-renderizar componentes
-  const handleRender = async () => {
-    try {
-      const response = await props.state.libros;
-      if (!response.data || response.data?.length == 0) return;
-      props.dispatch({ type: 'FETCH_BOOK_LIST', payload: response.data });
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   // funcion para abrir/cerrar el modal
   const handleModalEdit = () => {
@@ -42,60 +31,43 @@ const Libro = (props) => {
   // ADD nuevo libro
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      // valida que exista la persona
-      const response = props.state.personas;
-      props.dispatch({ type: 'FETCH_PERSONA_LIST', payload: response.data });
-      const result = response.data.filter(
-        (unaPersona) => unaPersona.id == persona
-      );
-      if (result.length == 0 && persona != '') {
-        return window.alert('Esa persona no existe');
-      }
-    } catch (e) {
-      console.log(e);
-    }
-    try {
-      // valida que exista la categoria
-      const response2 = props.state.categorias;
-      props.dispatch({ type: 'FETCH_CATEGORIA_LIST', payload: response2.data });
-      const result2 = response2.data.filter(
-        (unaCategoria) => unaCategoria.id == categoria
-      );
-      if (result2.length == 0) {
-        return window.alert('Esa categoria no existe');
-      }
-    } catch (e) {
-      console.log(e);
-    }
-
     try {
       // valida que se ingresen los datos obligatorios
-      if (nombre && descripcion) {
+      if (nombre && descripcion && categoria) {
+        // check si persona existe
+        if (persona) {
+          const findPersona = props.state.personas.filter(
+            (unaPersona) => unaPersona.id == persona
+          );
+          if (findPersona.length == 0 && persona != '') {
+            return window.alert('Esa persona no existe');
+          }
+        }
+        // check si libro existe
+        const findLibro = props.state.libros.filter(
+          (unLibro) => unLibro.nombre_libro == nombre.toUpperCase()
+        );
+        if (findLibro.length != 0) {
+          return window.alert('Esa libro ya existe');
+        }
+
         // crea nuevo libro
         const nuevoLibro = {
+          id: nanoid(),
           nombre_libro: nombre.toUpperCase(),
           descripcion: descripcion.toUpperCase(),
           categoria_id: categoria,
           persona_id: persona || null,
         };
-        // valida que el nombre no exista
-        const libroExiste = props.state.libros.filter(
-          (unLibro) => unLibro.nombre_libro == nuevoLibro.nombre_libro
-        );
-        if (libroExiste.length != 0) {
-          return window.alert('Esa libro ya existe');
-        }
         // POST a la bd
         props.dispatch({ type: 'BOOK_ADD_ITEM', payload: nuevoLibro });
         setNombre('');
         setDescripcion('');
         setCategoria('');
         setPersona('');
-        handleRender();
+        props.handleRender();
       } else {
-        return window.alert('No puedes ingresar valores en blanco');
+        return window.alert('Nombre, descripción y categoria ID son datos obligatorios');
       }
     } catch (e) {
       console.log(e);
@@ -116,7 +88,7 @@ const Libro = (props) => {
         return window.alert('Debes devolver el libro para poder borrarlo');
       }
       props.dispatch({ type: 'BOOK_REMOVE_ITEM', payload: libroId });
-      handleRender();
+      props.handleRender();
     } catch (e) {
       console.log(e);
     }
@@ -162,7 +134,7 @@ const Libro = (props) => {
     try {
       props.dispatch({ type: 'BOOK_REMOVE_ITEM', payload: libroId });
       props.dispatch({ type: 'BOOK_DEVOLVER_ITEM', payload: devolverLibro });
-      handleRender();
+      props.handleRender();
     } catch (e) {
       console.log(e);
     }
@@ -176,7 +148,7 @@ const Libro = (props) => {
           libroEditId={editId}
           handleEdit={handleEdit}
           listaLibros={props.state.libros}
-          handleRender={handleRender}
+          handleRender={props.handleRender}
           handleModalEdit={handleModalEdit}
           dispatch={props.dispatch}
         />
@@ -187,7 +159,7 @@ const Libro = (props) => {
           libroPrestarId={prestarId}
           handlePrestar={handlePrestar}
           listaLibros={props.state.libros}
-          handleRender={handleRender}
+          handleRender={props.handleRender}
           handleModalPrestar={handleModalPrestar}
           listaPersonas={props.state.personas}
           dispatch={props.dispatch}
@@ -248,66 +220,67 @@ const Libro = (props) => {
         </form>
         {/* iterando la lista de libros de la bd */}
         <h3>Listado de libros</h3>
-        {props.state.libros && props.state.libros.map((unLibro) => {
-          const {
-            id,
-            nombre_libro,
-            descripcion,
-            categoria_id,
-            persona_id,
-          } = unLibro;
-          const categoriaEnUso = props.state.categorias.filter(
-            (unaCategoria) => categoria_id == unaCategoria.id
-          );
+        {props.state.libros &&
+          props.state.libros.map((unLibro) => {
+            const {
+              id,
+              nombre_libro,
+              descripcion,
+              categoria_id,
+              persona_id,
+            } = unLibro;
+            const categoriaEnUso = props.state.categorias.filter(
+              (unaCategoria) => categoria_id == unaCategoria.id
+            );
 
-          const NombrePersona = props.state.personas.filter(
-            (unaPersona) => persona_id == unaPersona.id
-          );
+            const NombrePersona = props.state.personas.filter(
+              (unaPersona) => persona_id == unaPersona.id
+            );
 
-          return (
-            <div className='item' key={id}>
-              <div className='item-datos'>
-                <p>Titulo: {nombre_libro || 'sin libro'}</p>
-                <p>Descripción: {descripcion || 'sin descripcion'}</p>
-                <p>
-                  {categoriaEnUso.length !== 0
-                    ? 'Categoria: ' +
-                      categoriaEnUso.map(
-                        (unaCategoria) => unaCategoria.nombre_categoria
-                      )
-                    : 'sin categoria'}
-                </p>
-                <p>
-                  {NombrePersona.length !== 0
-                    ? 'Prestado a: ' +
-                      NombrePersona.map((unaPersona) => unaPersona.alias)
-                    : 'Libro disponible'}
+            return (
+              <div className='item' key={id}>
+                <div className='item-datos'>
+                  <p>Titulo: {nombre_libro || 'sin libro'}</p>
+                  <p>Descripción: {descripcion || 'sin descripcion'}</p>
+                  <p>
+                    {categoriaEnUso.length !== 0
+                      ? 'Categoria: ' +
+                        categoriaEnUso.map(
+                          (unaCategoria) => unaCategoria.nombre_categoria
+                        )
+                      : 'sin categoria'}
+                  </p>
+                  <p>
+                    {NombrePersona.length !== 0
+                      ? 'Prestado a: ' +
+                        NombrePersona.map((unaPersona) => unaPersona.alias)
+                      : 'Libro disponible'}
 
-                  {persona_id != null && (
-                    <button
-                      value={id}
-                      onClick={handleDevolver}
-                      className='btn item-button-devolver'
-                    >
-                      devolver libro
-                    </button>
-                  )}
-                </p>
+                    {persona_id != null && (
+                      <button
+                        value={id}
+                        onClick={handleDevolver}
+                        className='btn item-button-devolver'
+                      >
+                        devolver libro
+                      </button>
+                    )}
+                  </p>
+                </div>
+                <div className='item-botones'>
+                  <button className='btn' onClick={handleEdit} value={id}>
+                    Editar
+                  </button>
+                  <button className='btn' onClick={handlePrestar} value={id}>
+                    prestar
+                  </button>
+                  <button className='btn' onClick={handleDelete} value={id}>
+                    Eliminar
+                  </button>
+                </div>
               </div>
-              <div className='item-botones'>
-                <button className='btn' onClick={handleEdit} value={id}>
-                  Editar
-                </button>
-                <button className='btn' onClick={handlePrestar} value={id}>
-                  prestar
-                </button>
-                <button className='btn' onClick={handleDelete} value={id}>
-                  Eliminar
-                </button>
-              </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </section>
     </>
   );

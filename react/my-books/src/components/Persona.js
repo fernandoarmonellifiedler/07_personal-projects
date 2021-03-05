@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import axios from 'axios';
-import { v4 as uuidv4 } from 'uuid'; // genera id unicos
-import { nanoid } from 'nanoid'
+import { nanoid } from 'nanoid';
 import PersonaEdit from '../components/PersonaEdit.js';
 
 // COMPONENTE PRINCIPAL
@@ -11,16 +9,6 @@ const Persona = (props) => {
   const [alias, setAlias] = useState('');
   const [email, setEmail] = useState('');
   const [id, setId] = useState('');
-
-  // funcion para re-renderizar componentes
-  const handleRender = () => {
-    try {
-      const response = props.state.personas;
-      props.dispatch({ type: 'FETCH_PERSONA_LIST', payload: response.data });
-    } catch (e) {
-      console.log(e);
-    }
-  };
 
   // funcion para abrir/cerrar el modal
   const handleModalEdit = () => {
@@ -35,26 +23,28 @@ const Persona = (props) => {
     e.preventDefault();
     try {
       if (nombre && apellido && alias && email) {
+        // check si existe email
+        const findEmail = props.state.personas.find(
+          (unaPersona) => unaPersona.email == email.toUpperCase()
+        );
+        if (findEmail) {
+          return window.alert('Ese email ya se encuentra registrado!');
+        }
+
         const nuevaPersona = {
+          id: nanoid(),
           nombre: nombre.toUpperCase(),
           apellido: apellido.toUpperCase(),
           alias: alias.toUpperCase(),
           email: email.toUpperCase(),
         };
 
-        const findEmail = props.state.personas.find(
-          (unaPersona) => unaPersona.email == nuevaPersona.email
-        );
-        if (findEmail) {
-          return window.alert('Ese email ya se encuentra registrado!');
-        }
-
         props.dispatch({ type: 'PERSONA_ADD_ITEM', payload: nuevaPersona });
         setNombre('');
         setApellido('');
         setAlias('');
         setEmail('');
-        handleRender();
+        props.handleRender();
       } else {
         window.alert('Todos los campos son obligatorios');
       }
@@ -104,7 +94,7 @@ const Persona = (props) => {
           personaId={id}
           handleEdit={handleEdit}
           listaPersonas={props.state.personas}
-          handleRender={handleRender}
+          handleRender={props.handleRender}
           handleModalEdit={handleModalEdit}
           dispatch={props.dispatch}
         />
@@ -163,39 +153,40 @@ const Persona = (props) => {
         </form>
         {/* iterando la lista de personas de la bd */}
         <h3>Listado de personas</h3>
-        {props.state.personas && props.state.personas.map((unaPersona) => {
-          const { id, nombre, apellido, alias, email } = unaPersona;
-          const tieneLibros = props.state.libros.filter(
-            (unLibro) => unLibro.persona_id == id
-          );
-          return (
-            <div className='item' key={id}>
-              <div className='item-datos'>
-                <p>Nombre: {nombre || 'sin nombre'}</p>
-                <p>Apellido: {apellido || 'sin apellido'}</p>
+        {props.state.personas &&
+          props.state.personas.map((unaPersona) => {
+            const { id, nombre, apellido, alias, email } = unaPersona;
+            const tieneLibros = props.state.libros.filter(
+              (unLibro) => unLibro.persona_id == id
+            );
+            return (
+              <div className='item' key={id}>
+                <div className='item-datos'>
+                  <p>Nombre: {nombre || 'sin nombre'}</p>
+                  <p>Apellido: {apellido || 'sin apellido'}</p>
 
-                <p>Alias: {alias || 'sin alias'}</p>
-                <p>Email: {email || 'sin email'}</p>
-                <p>
-                  {tieneLibros.length !== 0
-                    ? 'Libros Prestados: ' +
-                      tieneLibros.map((unLibro) => unLibro.nombre_libro)
-                    : 'Libros Prestados: no tiene libros'}
-                </p>
-              </div>
+                  <p>Alias: {alias || 'sin alias'}</p>
+                  <p>Email: {email || 'sin email'}</p>
+                  <p>Id: {id}</p>
+                  <p>
+                    {tieneLibros.length !== 0
+                      ? 'Libros Prestados: ' +
+                        tieneLibros.map((unLibro) => unLibro.nombre_libro)
+                      : 'Libros Prestados: no tiene libros'}
+                  </p>
+                </div>
 
-              <div className='item-botones'>
-                <p className='item-botones-id'>Id: {id}</p>
-                <button className='btn' onClick={handleEdit} value={id}>
-                  Editar
-                </button>
-                <button className='btn' onClick={handleDelete} value={id}>
-                  Eliminar
-                </button>
+                <div className='item-botones'>
+                  <button className='btn' onClick={handleEdit} value={id}>
+                    Editar
+                  </button>
+                  <button className='btn' onClick={handleDelete} value={id}>
+                    Eliminar
+                  </button>
+                </div>
               </div>
-            </div>
-          );
-        })}
+            );
+          })}
       </section>
     </>
   );

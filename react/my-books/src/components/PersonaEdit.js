@@ -6,7 +6,6 @@ const PersonaEdit = (props) => {
   const [apellido, setApellido] = useState('');
   const [alias, setAlias] = useState('');
   const [email, setEmail] = useState('');
-  console.log(props)
   const personaSelected = props.state.listaPersonas.find(
     (unaPersona) => unaPersona.id == props.personaId
   );
