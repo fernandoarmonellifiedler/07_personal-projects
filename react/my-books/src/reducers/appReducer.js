@@ -41,10 +41,17 @@ export const reducer = (state, action) => {
     };
   }
   if (action.type === 'CATEGORIA_EDIT_ITEM') {
-    const nuevaCategorias = [...state.categorias, action.payload];
+    const categoriaToEdit = state.categorias.find(
+      (unaCategoria) => unaCategoria.id == action.payload.id
+    );
+    const objIndex = state.categorias.indexOf(categoriaToEdit);
+
+    const newCategorias = [...state.categorias];
+    newCategorias[objIndex] = action.payload;
+    
     return {
       ...state,
-      categorias: nuevaCategorias,
+      categorias: newCategorias,
     };
   }
   if (action.type === 'CATEGORIA_REMOVE_ITEM') {

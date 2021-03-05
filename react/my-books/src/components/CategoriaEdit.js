@@ -3,37 +3,30 @@ import React, { useState } from 'react';
 // COMPONENTE MODAL PARA EDITAR
 const CategoriaEdit = (props) => {
   const [nombre, setNombre] = useState('');
-
+  console.log(props.dispatch);
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const listaCategorias = props.state.categorias;
-      if (
-        listaCategorias.find(
-          (unaCategoria) =>
-            unaCategoria.nombre_categoria == nombre.toUpperCase()
-        )
-      ) {
-        return window.alert('Esa categoria ya existe!');
-      }
-    } catch (e) {
-      console.log(e);
-    }
-    try {
       if (nombre) {
-        const categoriaSelect = props.state.categorias.find(
-          (unaCategoria) =>
-            unaCategoria.id == props.catId
-        );
-        
+        // check si categoria existe
+        if (
+          listaCategorias.find(
+            (unaCategoria) =>
+              unaCategoria.nombre_categoria == nombre.toUpperCase()
+          )
+        ) {
+          return window.alert('Esa categoria ya existe!');
+        }
+        // edit categoria
         const editCategoria = {
-          id: categoriaSelect.id,
+          id: props.catId,
           nombre_categoria: nombre.toUpperCase(),
         };
         props.dispatch({ type: 'CATEGORIA_EDIT_ITEM', payload: editCategoria });
         setNombre('');
-        props.handleRender();
         props.handleModalEdit();
+        props.handleRender();
       } else {
         window.alert('No puedes ingresar valores en blanco');
       }
