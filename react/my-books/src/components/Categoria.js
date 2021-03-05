@@ -4,37 +4,23 @@ import CategoriaLibrosModal from '../components/CategoriaLibrosModal.js';
 import CategoriaEdit from '../components/CategoriaEdit';
 
 // COMPONENTE PRINCIPAL
-const Categoria = (props) => {
+const Categoria = ({ categoria, setCategoria }) => {
+
+  // librosEnCategoria: [],
+  // // categoria modal
+  // categoriaLibrosModal: false,
+  // categoriaEditModal: false,
+
   const [nombre, setNombre] = useState('');
   const [inputId, setInputId] = useState('');
   // funcion para abrir/cerrar el modal
   const handleModalEdit = () => {
-    if (props.state.categoriaEditModal === false) {
-      props.dispatch({
-        type: 'SWITCH_CATEGORIA_EDIT_MODAL',
-        payload: props.state.categoriaEditModal,
-      });
-    } else {
-      props.dispatch({
-        type: 'SWITCH_CATEGORIA_EDIT_MODAL',
-        payload: props.state.categoriaEditModal,
-      });
-    }
+    setCategoriaState(!categoria.categoriaEditModal);
   };
 
   // funcion para abrir/cerrar el modal
   const handleModalVerMas = () => {
-    if (props.state.categoriaLibrosModal === false) {
-      props.dispatch({
-        type: 'SWITCH_CATEGORIA_MODAL',
-        payload: props.state.categoriaLibrosModal,
-      });
-    } else {
-      props.dispatch({
-        type: 'SWITCH_CATEGORIA_MODAL',
-        payload: props.state.categoriaLibrosModal,
-      });
-    }
+    setCategoriaState(!categoriaState.categoriaLibrosModal);
   };
 
   // ADD nueva categoria
@@ -42,8 +28,9 @@ const Categoria = (props) => {
     e.preventDefault();
     try {
       if (nombre) {
-        if (props.state.categorias !== undefined &&
-          props.state.categorias.find(
+        if (
+          categoriaState.categorias !== undefined &&
+          categoriaState.categorias.find(
             (unaCategoria) =>
               unaCategoria.nombre_categoria == nombre.toUpperCase()
           )
@@ -55,10 +42,11 @@ const Categoria = (props) => {
           id: nanoid(),
           nombre_categoria: nombre.toUpperCase(),
         };
-
-        props.dispatch({ type: 'CATEGORIA_ADD_ITEM', payload: addCategoria });
+        console.log({...categoriaState, addCategoria})
+        setCategoriaState({...categoriaState, addCategoria})
+        // props.dispatch({ type: 'CATEGORIA_ADD_ITEM', payload: addCategoria });
         setNombre('');
-        props.handleRender();
+        // props.handleRender();
       } else {
         window.alert('No puedes ingresar valores en blanco');
       }
@@ -69,15 +57,15 @@ const Categoria = (props) => {
   // DELETE categoria
   const handleDelete = (e) => {
     try {
-      const response = props.state.libros;
-      if (response.find((unLibro) => unLibro.categoria_id == e.target.value)) {
-        return window.alert('Esa categoria aun tiene libros asociados!');
-      }
-    
+      // const response = props.state.libros;
+      // if (response.find((unLibro) => unLibro.categoria_id == e.target.value)) {
+      //   return window.alert('Esa categoria aun tiene libros asociados!');
+      // }
+
       const categoriaId = e.target.value;
-      props.dispatch({ type: 'CATEGORIA_REMOVE_ITEM', payload: categoriaId });
+      // props.dispatch({ type: 'CATEGORIA_REMOVE_ITEM', payload: categoriaId });
       setInputId('');
-      props.handleRender();
+      // props.handleRender();
     } catch (e) {
       console.log(e);
     }
@@ -99,12 +87,12 @@ const Categoria = (props) => {
     if (categoriaId) {
       handleModalVerMas();
       try {
-        const response = props.state.libros;
-        props.dispatch({ type: 'FETCH_BOOK_LIST', payload: response });
-        props.dispatch({
-          type: 'FETCH_BOOKS_ON_CATEGORY',
-          payload: categoriaId,
-        });
+        // const response = props.state.libros;
+        // props.dispatch({ type: 'FETCH_BOOK_LIST', payload: response });
+        // props.dispatch({
+        //   type: 'FETCH_BOOKS_ON_CATEGORY',
+        //   payload: categoriaId,
+        // });
         setInputId('');
       } catch (e) {
         console.log(e);
@@ -117,7 +105,7 @@ const Categoria = (props) => {
   return (
     <>
       {/* Modal para ver libros en categoria */}
-      {props.state.categoriaLibrosModal && (
+      {/* {props.state.categoriaLibrosModal && (
         <CategoriaLibrosModal
           state={props.state}
           handleVerMas={handleVerMas}
@@ -125,7 +113,7 @@ const Categoria = (props) => {
         />
       )}
       {/* Modal para editar categoria */}
-      {props.state.categoriaEditModal && (
+      {/* {props.state.categoriaEditModal && (
         <CategoriaEdit
           catId={inputId}
           handleEdit={handleEdit}
@@ -134,7 +122,7 @@ const Categoria = (props) => {
           state={props.state}
           dispatch={props.dispatch}
         />
-      )}
+      )} */}
       <section className='section'>
         <header>
           <h2>Agregar categoría</h2>
@@ -157,8 +145,8 @@ const Categoria = (props) => {
 
         {/* iterando sobre la lista de categorias de la bd */}
         <h3>Listado de categorías</h3>
-        {props.state.categorias &&
-          props.state.categorias.map((unaCategoria) => {
+        {categoriaState.categorias &&
+          categoriaState.categorias.map((unaCategoria) => {
             const { id, nombre_categoria } = unaCategoria;
             return (
               <div className='item' key={id}>

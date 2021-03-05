@@ -1,40 +1,13 @@
-import React, { useEffect, useReducer } from 'react';
-import { reducer } from './reducers/appReducer';
-import { defaultState } from './components/defaultState';
+import React, { useState, useEffect } from 'react';
+
 import Persona from './components/Persona';
 import Categoria from './components/Categoria';
 import Libro from './components/Libro';
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, defaultState);
-  useEffect(() => {
-    // console.log('useEffect');
-    try {
-      dispatch({
-        type: 'FETCH_CATEGORIA_LIST',
-        payload: defaultState.categorias,
-      });
-      dispatch({ type: 'FETCH_BOOK_LIST', payload: defaultState.libros });
-      dispatch({ type: 'FETCH_PERSONA_LIST', payload: defaultState.personas });
-    } catch (error) {
-      console.log(error);
-    }
-  }, []);
-  
-  // funcion para re-renderizar componentes
-  const handleRender = () => {
-    // console.log('render');
-    try {
-      dispatch({
-        type: 'FETCH_CATEGORIA_LIST',
-        payload: state.categorias,
-      });
-      dispatch({ type: 'FETCH_BOOK_LIST', payload: state.libros });
-      dispatch({ type: 'FETCH_PERSONA_LIST', payload: state.personas });
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [categoria, setCategoria] = useState([]);
+  const [libro, setLibro] = useState([]);
+  const [persona, setPersona] = useState([]);
 
   return (
     <>
@@ -42,20 +15,23 @@ function App() {
         <h1 className='app-title'>My Books</h1>
         <div className='app'>
           <Categoria
-            state={state}
-            dispatch={dispatch}
-            handleRender={handleRender}
+            categoria={categoria}
+            setCategoria={setCategoria}
+            // libroState={libroState}
+            // setLibroState={setLibroState}
+            // personaState={personaState}
+            // setPersonaState={setPersonaState}
           />
-          <Libro
-            state={state}
-            dispatch={dispatch}
-            handleRender={handleRender}
+          {/* <Libro
+            categoriaState={categoriaState}
+            libroState={libroState}
+            personaState={personaState}
           />
           <Persona
-            state={state}
-            dispatch={dispatch}
-            handleRender={handleRender}
-          />
+            categoriaState={categoriaState}
+            libroState={libroState}
+            personaState={personaState}
+          /> */}
         </div>
       </div>
     </>
