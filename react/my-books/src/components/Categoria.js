@@ -4,8 +4,7 @@ import CategoriaLibrosModal from '../components/CategoriaLibrosModal.js';
 import CategoriaEdit from '../components/CategoriaEdit';
 
 // COMPONENTE PRINCIPAL
-const Categoria = ({ categoria, setCategoria }) => {
-
+const Categoria = ({ categoria, setCategoria, fetchLists }) => {
   // librosEnCategoria: [],
   // // categoria modal
   // categoriaLibrosModal: false,
@@ -42,8 +41,8 @@ const Categoria = ({ categoria, setCategoria }) => {
           id: nanoid(),
           nombre_categoria: nombre.toUpperCase(),
         };
-        console.log({...categoriaState, addCategoria})
-        setCategoriaState({...categoriaState, addCategoria})
+        console.log({ ...categoriaState, addCategoria });
+        setCategoriaState({ ...categoriaState, addCategoria });
         // props.dispatch({ type: 'CATEGORIA_ADD_ITEM', payload: addCategoria });
         setNombre('');
         // props.handleRender();
@@ -63,6 +62,9 @@ const Categoria = ({ categoria, setCategoria }) => {
       // }
 
       const categoriaId = e.target.value;
+      const nuevaCategoria = categoria.filter(unaCategoria => unaCategoria.id === categoriaId
+      )
+      setCategoria(nuevaCategoria)
       // props.dispatch({ type: 'CATEGORIA_REMOVE_ITEM', payload: categoriaId });
       setInputId('');
       // props.handleRender();
@@ -101,6 +103,17 @@ const Categoria = ({ categoria, setCategoria }) => {
       handleModalVerMas();
     }
   };
+
+  if (categoria.length === 0) {
+    return (
+      <main>
+        <div>
+          <h2>No hay categorias</h2>
+          <button onClick={fetchLists}>refresh</button>
+        </div>
+      </main>
+    );
+  }
 
   return (
     <>

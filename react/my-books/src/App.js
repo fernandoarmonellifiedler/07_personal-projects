@@ -9,6 +9,34 @@ function App() {
   const [libro, setLibro] = useState([]);
   const [persona, setPersona] = useState([]);
 
+  const fetchLists = async () => {
+    try {
+      const response = await fetch(categoria);
+      const categorias = await response.json();
+      setCategoria(categorias);
+    } catch (error) {
+      console.log(error);
+    }
+    try {
+      const response = await fetch(libro);
+      const libros = await response.json();
+      setCategoria(libros);
+    } catch (error) {
+      console.log(error);
+    }
+    try {
+      const response = await fetch(persona);
+      const personas = await response.json();
+      setCategoria(personas);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchLists();
+  },[])
+
   return (
     <>
       <div className='container'>
@@ -17,6 +45,7 @@ function App() {
           <Categoria
             categoria={categoria}
             setCategoria={setCategoria}
+            fetchLists={fetchLists}
             // libroState={libroState}
             // setLibroState={setLibroState}
             // personaState={personaState}
