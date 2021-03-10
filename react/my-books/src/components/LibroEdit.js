@@ -8,6 +8,7 @@ const LibroEdit = ({ libros, setLibros, editModal, setEditModal, id }) => {
     if (descripcion) {
       // edit libro
       const libroSelected = libros.find((unLibro) => unLibro.id == id);
+      
       const editLibro = {
         id: libroSelected.id,
         nombre_libro: libroSelected.nombre_libro,

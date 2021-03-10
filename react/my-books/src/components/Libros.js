@@ -32,7 +32,6 @@ const Libros = ({ libros, setLibros, categorias, personas }) => {
       const categoriaFind = categorias.filter(
         (unaCategoria) => unaCategoria.id == categoria
       );
-      console.log(categoriaFind);
       if (categoriaFind.length == 0) {
         return window.alert('Esa categoria no existe');
       }
@@ -66,8 +65,8 @@ const Libros = ({ libros, setLibros, categorias, personas }) => {
   const handleRemove = (e) => {
     const libroId = e.target.value;
 
-    const libroSelected = libros.find((unLibro) => unLibro.id === libroId);
     // check si esta prestado
+    const libroSelected = libros.find((unLibro) => unLibro.id === libroId);
     if (
       personas.find((unaPersona) => unaPersona.id == libroSelected.persona_id)
     ) {
@@ -92,6 +91,21 @@ const Libros = ({ libros, setLibros, categorias, personas }) => {
 
   const handleDevolver = (e) => {
     const libroId = e.target.value;
+    const libroSelected = libros.find((unLibro) => unLibro.id == libroId);
+
+    const devolverLibro = {
+      id: libroId,
+      nombre_libro: libroSelected.nombre_libro,
+      descripcion: libroSelected.descripcion,
+      categoria_id: libroSelected.categoria_id,
+      persona_id: null,
+    };
+
+    const newLibros = libros.map((unLibro) =>
+      unLibro.id === libroId ? devolverLibro : unLibro
+    );
+
+    setLibros(newLibros);
   };
 
   return (
@@ -155,7 +169,16 @@ const Libros = ({ libros, setLibros, categorias, personas }) => {
           id={libroId}
         />
       )}
-      {prestarModal && <LibroPrestar />}
+      {prestarModal && (
+        <LibroPrestar
+          libros={libros}
+          setLibros={setLibros}
+          personas={personas}
+          prestarModal={prestarModal}
+          setPrestarModal={setPrestarModal}
+          id={libroId}
+        />
+      )}
 
       {libros.length !== 0 ? (
         libros.map((unLibro) => {

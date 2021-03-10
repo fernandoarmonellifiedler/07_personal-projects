@@ -22,9 +22,22 @@ function App() {
           <div className='underline'></div>
         </div>
         <div className='container'>
-          <Categorias categorias={categorias} setCategorias={setCategorias} libros={libros} />
-          <Libros libros={libros} setLibros={setLibros} categorias={categorias} personas={personas} />
-          {/* <Personas /> */}
+          <Categorias
+            categorias={categorias}
+            setCategorias={setCategorias}
+            libros={libros}
+          />
+          <Libros
+            libros={libros}
+            setLibros={setLibros}
+            categorias={categorias}
+            personas={personas}
+          />
+          <Personas
+            personas={personas}
+            setPersonas={setPersonas}
+            libros={libros}
+          />
         </div>
       </div>
     </>
