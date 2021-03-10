@@ -1,32 +1,27 @@
 import React, { useState } from 'react';
 
-const CategoriaEdit = ({
-  id,
-  categorias,
-  setCategorias,
-  modal,
-  setModal,
-}) => {
+const CategoriaEdit = ({ id, categorias, setCategorias, modal, setModal }) => {
   const [nombre, setNombre] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // check si categoria existe
-    if (
-      categorias.find(
-        (categoria) => categoria.nombre_categoria == nombre.toUpperCase()
-      )
-    ) {
-      return window.alert('Esa categoria ya existe!');
-    }
-
     if (nombre) {
+      // check si categoria existe
+      if (
+        categorias.find(
+          (unaCategoria) => unaCategoria.nombre_categoria == nombre.toUpperCase()
+        )
+      ) {
+        return window.alert('Esa categoria ya existe!');
+      }
+
+      // edit categoria
       const editCategoria = {
         id: id,
         nombre_categoria: nombre.toUpperCase(),
       };
-      const newCategorias = categorias.map((categoria) =>
-        categoria.id === id ? editCategoria : categoria
+      const newCategorias = categorias.map((unaCategoria) =>
+        unaCategoria.id === id ? editCategoria : unaCategoria
       );
 
       setCategorias(newCategorias);

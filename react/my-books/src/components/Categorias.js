@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { nanoid } from 'nanoid';
 import CategoriaEdit from './CategoriaEdit';
 
-const Categorias = ({ categorias, setCategorias }) => {
+const Categorias = ({ categorias, setCategorias, libros }) => {
   const [nombre, setNombre] = useState('');
   const [modal, setModal] = useState(false);
   const [catId, setCatId] = useState('');
@@ -32,15 +32,24 @@ const Categorias = ({ categorias, setCategorias }) => {
   };
 
   // remove categoria
-  const removeCategoria = (e) => {
+  const handleRemove = (e) => {
+    const categoriaId = e.target.value;
+    
+    // check si tiene libros asociados
+    if (
+      libros.find((unLibro) => unLibro.categoria_id == categoriaId)
+    ) {
+      return window.alert('Esa categoria aun tiene libros asociados!');
+    }
+
     const newCategorias = categorias.filter(
-      (categoria) => categoria.id !== e.target.value
+      (unaCategoria) => unaCategoria.id !== categoriaId
     );
     setCategorias(newCategorias);
   };
 
   // edit categoria
-  const editCategoria = (e) => {
+  const handleEdit = (e) => {
     setModal(!modal);
     setCatId(e.target.value);
   };
@@ -74,19 +83,21 @@ const Categorias = ({ categorias, setCategorias }) => {
       )}
 
       {categorias.length !== 0 ? (
-        categorias.map((categoria) => {
-          const { id, nombre_categoria } = categoria;
+        categorias.map((unaCategoria) => {
+          const { id, nombre_categoria } = unaCategoria;
+
           return (
             <div className='item' key={id}>
               <div className='item-datos'>
                 <h4>{nombre_categoria}</h4>
                 <p>ID: {id}</p>
               </div>
+
               <div className='item-botones'>
-                <button className='btn' onClick={editCategoria} value={id}>
+                <button className='btn' onClick={handleEdit} value={id}>
                   Editar
                 </button>
-                <button className='btn' onClick={removeCategoria} value={id}>
+                <button className='btn' onClick={handleRemove} value={id}>
                   Borrar
                 </button>
               </div>
@@ -95,7 +106,7 @@ const Categorias = ({ categorias, setCategorias }) => {
         })
       ) : (
         <div>
-          <h3>no quedan categorias...</h3>
+          <h3>no hay categorias registradas...</h3>
         </div>
       )}
     </section>
