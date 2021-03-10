@@ -1,66 +1,30 @@
 import React, { useState, useEffect } from 'react';
-
-import Persona from './components/Persona';
-import Categoria from './components/Categoria';
-import Libro from './components/Libro';
+// lists
+import { categoriasData } from './data/categoriasData';
+import { librosData } from './data/librosData';
+import { personasData } from './data/personasData';
+// components
+import Categorias from './components/Categorias';
+import Libros from './components/Libros';
+import Personas from './components/Personas';
+import Loading from './components/Loading';
 
 function App() {
-  const [categoria, setCategoria] = useState([]);
-  const [libro, setLibro] = useState([]);
-  const [persona, setPersona] = useState([]);
-
-  const fetchLists = async () => {
-    try {
-      const response = await fetch(categoria);
-      const categorias = await response.json();
-      setCategoria(categorias);
-    } catch (error) {
-      console.log(error);
-    }
-    try {
-      const response = await fetch(libro);
-      const libros = await response.json();
-      setCategoria(libros);
-    } catch (error) {
-      console.log(error);
-    }
-    try {
-      const response = await fetch(persona);
-      const personas = await response.json();
-      setCategoria(personas);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchLists();
-  },[])
+  const [categorias, setCategorias] = useState(categoriasData);
+  const [libros, setLibros] = useState(librosData);
+  const [personas, setPersonas] = useState(personasData);
 
   return (
     <>
-      <div className='container'>
-        <h1 className='app-title'>My Books</h1>
-        <div className='app'>
-          <Categoria
-            categoria={categoria}
-            setCategoria={setCategoria}
-            fetchLists={fetchLists}
-            // libroState={libroState}
-            // setLibroState={setLibroState}
-            // personaState={personaState}
-            // setPersonaState={setPersonaState}
-          />
-          {/* <Libro
-            categoriaState={categoriaState}
-            libroState={libroState}
-            personaState={personaState}
-          />
-          <Persona
-            categoriaState={categoriaState}
-            libroState={libroState}
-            personaState={personaState}
-          /> */}
+      <div className='app'>
+        <div className='app-title'>
+          <h1>My Books</h1>
+          <div className='underline'></div>
+        </div>
+        <div className='container'>
+          <Categorias categorias={categorias} setCategorias={setCategorias} />
+          {/* <Libros />
+          <Personas /> */}
         </div>
       </div>
     </>

@@ -1,6 +1,4 @@
-import { nanoid } from 'nanoid';
-
-export const categoriaData = [
+export const categoriasData = [
   // {
   //   id: 1,
   //   nombre_categoria: 'CATEGORIA TEST',
