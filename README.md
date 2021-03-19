@@ -1,6 +1,17 @@
 # Personal projects
 
-repo for grouping personal projects as a result of my studies and practices on programming.
+En este repositorio vas a encontrar mis proyectos más destacados, tanto desarrollos propios como fruto de mi estudio en diferentes lenguajes y librerías. 
+Estos proyectos son los que considero los desafíos más importantes como parte de mi proceso de aprendizaje.
+
+Por eso verás para cada uno de ellos un link al repositorio de Github como también un link hacia la app en funcionamiento (cuando sea posible).
+
+Están agrupados en: 
+- Javascript
+- React
+- Node
+- Object Oriented Programming
+- Web Development
+
 
 ## Javascript
 
