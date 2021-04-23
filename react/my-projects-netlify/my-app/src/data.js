@@ -3,71 +3,101 @@ export default [
     id: 1,
     img:
       'https://raw.githubusercontent.com/fernandoarmonellifiedler/personal-projects/master/react/my-projects-netlify/my-app/src/images/img_11.png',
-    name: 'React-MyBooks',
+    title: 'React-MyBooks',
     link: 'https://react-mybooks.netlify.app/',
+    description: 'sdadasdas',
+    categoria: 'react',
+    categoria_id: 1
   },
   {
     id: 2,
     img:
       'https://raw.githubusercontent.com/fernandoarmonellifiedler/personal-projects/master/react/my-projects-netlify/my-app/src/images/img_8.png',
-    name: 'react-gradebook',
+    title: 'react-gradebook',
     link: 'https://react-gradebook.netlify.app',
+    description: 'sdadasdas',
+    categoria: 'react',
+    categoria_id: 1
   },
   {
     id: 3,
     img:
       'https://raw.githubusercontent.com/fernandoarmonellifiedler/personal-projects/master/react/my-projects-netlify/my-app/src/images/img_9.png',
-    name: 'react-bookslist',
+    title: 'react-bookslist',
     link: 'https://react-bookslist.netlify.app',
+    description: 'sdadasdas',
+    categoria: 'react',
+    categoria_id: 1
   },
   {
     id: 4,
     img:
       'https://raw.githubusercontent.com/fernandoarmonellifiedler/personal-projects/master/react/my-projects-netlify/my-app/src/images/img_10.png',
-    name: 'react-birthday-reminder',
-    link: 'https://react-birthdayreminder.netlify.app/',
+    title: 'react-birthday-reminder',
+    link: 'https://react-birthdayreminder.netlify.app',
+    description: 'sdadasdas',
+    categoria: 'react',
+    categoria_id: 1
   },
   {
     id: 5,
     img:
       'https://raw.githubusercontent.com/fernandoarmonellifiedler/personal-projects/master/react/my-projects-netlify/my-app/src/images/img_1.png',
-    name: 'javascript-tirada-de-tarot',
+    title: 'javascript-tirada-de-tarot',
     link: 'https://javascript-tirada-de-tarot.netlify.app',
+    description: 'sdadasdas',
+    categoria: 'js',
+    categoria_id: 2
   },
   {
     id: 6,
     img:
       'https://raw.githubusercontent.com/fernandoarmonellifiedler/personal-projects/master/react/my-projects-netlify/my-app/src/images/img_2.png',
-    name: 'javascript-todo-app-list',
+    title: 'javascript-todo-app-list',
     link: 'https://javascript-todo-app-list.netlify.app',
+    description: 'sdadasdas',
+    categoria: 'js',
+    categoria_id: 2
   },
   {
     id: 7,
     img:
       'https://raw.githubusercontent.com/fernandoarmonellifiedler/personal-projects/master/react/my-projects-netlify/my-app/src/images/img_3.png',
-    name: 'javascript-carrito-de-compras',
+    title: 'javascript-carrito-de-compras',
     link: 'https://javascript-carrito-de-compras.netlify.app',
+    description: 'sdadasdas',
+    categoria: 'js',
+    categoria_id: 2
   },
   {
     id: 8,
     img:
       'https://raw.githubusercontent.com/fernandoarmonellifiedler/personal-projects/master/react/my-projects-netlify/my-app/src/images/img_4.png',
-    name: 'web-development-living-the-simple-life',
+    title: 'web-development-living-the-simple-life',
     link: 'https://web-development-living-the-simple-life.netlify.app',
+    description: 'sdadasdas',
+    categoria: 'web-dev',
+    categoria_id: 3
   },
   {
     id: 9,
     img:
       'https://raw.githubusercontent.com/fernandoarmonellifiedler/personal-projects/master/react/my-projects-netlify/my-app/src/images/img_5.png',
-    name: 'web-development-my-portfolio',
+    title: 'web-development-my-portfolio',
     link: 'https://web-development-my-portfolio.netlify.app',
+    description: 'sdadasdas',
+    categoria: 'web-dev',
+    categoria_id: 3
   },
   {
     id: 10,
     img:
       'https://raw.githubusercontent.com/fernandoarmonellifiedler/personal-projects/master/react/my-projects-netlify/my-app/src/images/img_6.png',
-    name: 'react-tic-tac-toe-gameapp',
+    title: 'react-tic-tac-toe-gameapp',
     link: 'https://react-tic-tac-toe-gameapp.netlify.app',
+    description: 'sdadasdas',
+    categoria: 'react',
+    categoria_id: 1
   },
   // {
   //   id: 7,

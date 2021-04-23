@@ -1,18 +1,16 @@
-import React from 'react';
-
 const List = ({ projects }) => {
   return (
     <>
       <section className='projects'>
         {projects.map((project) => {
-          const { id, name, img, link } = project;
+          const { id, title, img, link } = project;
 
           return (
-            <article key={id} className='item'>
-              <img src={img} alt={name} />
-              <h4>{name}</h4>
-              <a href={link}>Go to Project</a>
-            </article>
+            <a key={id} className='item' href={link}>
+              <img src={img} alt={title} />
+              <h4>{title}</h4>
+              {/* <a href={link}>Go to Project</a> */}
+            </a>
           );
         })}
       </section>
