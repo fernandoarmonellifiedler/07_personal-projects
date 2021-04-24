@@ -181,6 +181,10 @@ nav a {
   font-weight: 700;
 }
 
+main {
+  display:flex;
+}
+
 .projects {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
